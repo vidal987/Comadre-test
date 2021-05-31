@@ -7,5 +7,6 @@ namespace teste_comadre.Respositories
     public interface IUserRepository : IBaseRepository<User>
     {
         bool Exists(string login, string password);
+        User? GetByLogin(string userLogin);
     }
 }

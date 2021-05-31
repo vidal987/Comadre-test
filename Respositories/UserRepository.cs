@@ -11,9 +11,16 @@ namespace teste_comadre.Respositories
 
         public bool Exists(string login, string password)
         {
-            var user = dataContext.User.Where(u => u.Login == login && u.Password == password).FirstOrDefault();
+            var user = dataContext.User.FirstOrDefault(u => u.Login == login && u.Password == password);
 
             return user != null;
+        }
+
+        public User? GetByLogin(string userLogin)
+        {
+            var user = dataContext.User.FirstOrDefault(u => u.Login == userLogin);
+
+            return user;
         }
     }
 }

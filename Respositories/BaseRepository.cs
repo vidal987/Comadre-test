@@ -8,7 +8,6 @@ namespace teste_comadre.Respositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-
         protected readonly DataContext dataContext;
 
         public BaseRepository(DataContext dataContext)
@@ -23,7 +22,7 @@ namespace teste_comadre.Respositories
 
         public T GetById(int id)
         {
-            return dataContext.Set<T>().Where(x => x.Id == id).FirstOrDefault();
+            return dataContext.Set<T>().FirstOrDefault(x => x.Id == id);
 
         }
 
@@ -31,9 +30,7 @@ namespace teste_comadre.Respositories
         {
             dataContext.Set<T>().Add(entity);
 
-            dataContext.SaveChanges();
-
-            return  dataContext.SaveChanges() == 1;
+            return dataContext.SaveChanges() == 1;
         }
 
         public bool Update(T entity)
@@ -41,20 +38,21 @@ namespace teste_comadre.Respositories
             dataContext.Entry(entity).State = EntityState.Modified;
             dataContext.Set<T>().Update(entity);
 
-            dataContext.SaveChanges();
-            
-            return  dataContext.SaveChanges() == 1;
+            return dataContext.SaveChanges() == 1;
         }
 
         public bool Delete(int id)
         {
-            var entity = dataContext.Set<T>().Where(x => x.Id == id).FirstOrDefault();
+            var entity = dataContext.Set<T>().FirstOrDefault(x => x.Id == id);
+
+            if (entity == null)
+            {
+                return false;
+            }
 
             dataContext.Set<T>().Remove(entity);
 
-            dataContext.SaveChanges();
-
-            return  dataContext.SaveChanges() == 1;
+            return dataContext.SaveChanges() == 1;
         }
 
 

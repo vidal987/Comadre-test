@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using teste_comadre.Models;
 using teste_comadre.Services;
 using teste_comadre.ViewModels;
@@ -26,7 +27,6 @@ namespace teste_comadre.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserPostViewModel userPostViewModel)
         {
-
             //mapear 
             var user = mapper.Map<User>(userPostViewModel);
 
@@ -36,6 +36,13 @@ namespace teste_comadre.Controllers
             // Verifica se o usuário existe
             if (isValidUser == false)
                 return NotFound(new { message = "Usuário ou senha inválidos" });
+
+            user = await userService.GetByLogin(user.Login);
+
+            if (user == null)
+            {
+                return BadRequest(new { message = "Algo de errado aconteceu." });
+            }
 
             // Gera o Token
             var token = TokenService.GenerateToken(user);

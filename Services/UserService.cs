@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using teste_comadre.Models;
 using teste_comadre.Respositories;
 
@@ -27,6 +28,11 @@ namespace teste_comadre.Services
             var exists = userRepository.Exists(user.Login, user.Password);
 
             return exists;
+        }
+
+        public async Task<User?> GetByLogin(string userLogin)
+        {
+            return userRepository.GetByLogin(userLogin);
         }
     }
 }

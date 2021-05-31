@@ -8,5 +8,6 @@ namespace teste_comadre.Services
     {
         Task<bool> Create(User user);
         Task<bool> Validate(User user);
+        Task<User?> GetByLogin(string userLogin);
     }
 }

@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using teste_comadre.Models;
+using teste_comadre.Respositories;
 using teste_comadre.Services;
 using teste_comadre.ViewModels;
 
@@ -20,6 +23,13 @@ namespace teste_comadre.Controllers
         {
             this.mapper = mapper;
             this.userService = userService;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<User>>> Get([FromServices] IBaseRepository<User> userRepository)
+        {
+            return Ok(userRepository.Get());
         }
 
         [HttpPost]

@@ -23,9 +23,9 @@ namespace teste_comadre.Respositories
 
         public new bool Delete(int id)
         {
-            var transaction = transactions.Where(x => x.Id == id).FirstOrDefault();
+            var transaction = transactions.FirstOrDefault(x => x.Id == id);
 
-            if(transaction.Id == 0)
+            if(transaction == null || transaction.Id == 0)
                 return false;
                 
             transaction.IsCanceled = true;
