@@ -33,3 +33,10 @@ C:\Users\Vidal\Documents\dev\teste-comadre\obj\Debug\net5.0\teste-comadre.dll
 C:\Users\Vidal\Documents\dev\teste-comadre\obj\Debug\net5.0\ref\teste-comadre.dll
 C:\Users\Vidal\Documents\dev\teste-comadre\obj\Debug\net5.0\teste-comadre.pdb
 C:\Users\Vidal\Documents\dev\teste-comadre\obj\Debug\net5.0\teste-comadre.genruntimeconfig.cache
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Vidal\Documents\dev\teste-comadre\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

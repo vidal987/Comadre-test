@@ -8,8 +8,9 @@ namespace teste_comadre.Mappers
     { 
         public Mapping()
         {
-            CreateMap<AccountPostViewModel, Account>();
             CreateMap<TransactionPostViewModel, Transaction>();
+            CreateMap<AccountPostViewModel, Account>();
+            CreateMap<UserPostViewModel, User>();
         }
     }
 }

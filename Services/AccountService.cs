@@ -16,8 +16,9 @@ namespace teste_comadre.Services
             this.transactionRepository = transactionRepository;
         }
 
-        public async Task<bool> Create(Account account)
+        public async Task<bool> Create(int userId, Account account)
         {
+            account.UserId = userId;
             return accountRepository.Add(account); 
         }
 

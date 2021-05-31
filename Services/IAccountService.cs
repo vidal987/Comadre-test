@@ -6,7 +6,7 @@ namespace teste_comadre.Services
 {
     public interface IAccountService
     {
-        Task<bool> Create(Account account);
+        Task<bool> Create(int userId, Account account);
 
         Task<decimal> GetBalance(int id);
     }
